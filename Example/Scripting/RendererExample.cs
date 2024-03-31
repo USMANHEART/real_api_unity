@@ -1,5 +1,4 @@
 using System;
-using REAL.Items;
 using REAL.Networks;
 using UnityEngine;
 
@@ -23,6 +22,7 @@ namespace REAL.Example
         {
             var type = response.type;
             var jobsData = response.data;
+            // Debug.Log($"type: {type}, data: {jobsData}");
             
             switch (type)
             {

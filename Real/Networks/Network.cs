@@ -2,6 +2,7 @@ using System;
 using REAL.Tools;
 using UnityEngine;
 using System.Collections.Generic;
+using REAL.Items;
 
 namespace REAL.Networks
 {
@@ -23,10 +24,14 @@ namespace REAL.Networks
             try
             {
                 var jsonData = JsonUtility.FromJson<SocketMsg>(jsonString);
-                if (jsonData.type != "job") return JsonUtility.FromJson<SocketResponse>(JsonUtility.ToJson(jsonData));
-                var dataArray = new List<string> { jsonData.data };
-                jsonData.data = JsonUtility.ToJson(dataArray);
-                return JsonUtility.FromJson<SocketResponse>(JsonUtility.ToJson(jsonData));
+                if (jsonData.type != "job") return JsonUtility.FromJson<SocketResponse>(jsonString);
+                var jobs = new []{jsonData.data};
+                return new SocketResponse()
+                {
+                    msg = jsonData.msg,
+                    type = jsonData.type,
+                    data = jobs
+                };
             }
             catch (Exception e)
             {
@@ -40,7 +45,7 @@ namespace REAL.Networks
         {
             public string msg;
             public string type;
-            public string data;
+            public Job data;
         }
     }
 }

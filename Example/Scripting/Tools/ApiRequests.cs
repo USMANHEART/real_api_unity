@@ -40,7 +40,6 @@ public static class ApiRequests
     {
         var param = new Params(login, ask, jobID, render);
         var json = param.Dumps();
-
         var data = Encoding.UTF8.GetBytes(json);
         var www = UnityWebRequest.Post(RealNetwork.Api, "");
         www.uploadHandler = new UploadHandlerRaw(data);
