@@ -17,7 +17,7 @@ namespace REAL.Example
             var json = param.Dumps();
 
             var data = Encoding.UTF8.GetBytes(json);
-            var www = UnityWebRequest.Post(RealNetwork.ApiPath, "");
+            var www = UnityWebRequest.Post(RealNetwork.Api, "");
             www.uploadHandler = new UploadHandlerRaw(data);
             www.downloadHandler = new DownloadHandlerBuffer();
             www.SetRequestHeader("Content-Type", "application/json");
@@ -61,7 +61,7 @@ namespace REAL.Example
             
             var data = Encoding.UTF8.GetBytes(json);
             var header = new Hashtable { { "Content-Type", "application/json" } };
-            var www = new WWW (RealNetwork.ApiPath, data, header);
+            var www = new WWW (RealNetwork.Api, data, header);
             yield return www;
             Debug.Log(www.text);
         }

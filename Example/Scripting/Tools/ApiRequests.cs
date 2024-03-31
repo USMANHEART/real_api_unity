@@ -12,11 +12,7 @@ public static class ApiRequests
     public static async Task<AccountResponse> LoginProduct(LoginCred login)
     {
         const string domain = RealNetwork.Domain;
-        var insID = login.insID;
-        var appKey = login.appKey;
-        var prodKey = login.prodKey;
-        
-        var uri = $"https://{domain}/rapi/login?insID={insID}&appKey={appKey}&prodKey={prodKey}";
+        var uri = RealNetwork.LoginAPI(login);
         
         var www = UnityWebRequest.Get(uri);
         www.downloadHandler = new DownloadHandlerBuffer();
@@ -46,7 +42,7 @@ public static class ApiRequests
         var json = param.Dumps();
 
         var data = Encoding.UTF8.GetBytes(json);
-        var www = UnityWebRequest.Post(RealNetwork.ApiPath, "");
+        var www = UnityWebRequest.Post(RealNetwork.Api, "");
         www.uploadHandler = new UploadHandlerRaw(data);
         www.downloadHandler = new DownloadHandlerBuffer();
         www.SetRequestHeader("Content-Type", "application/json");

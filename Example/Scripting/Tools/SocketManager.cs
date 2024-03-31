@@ -87,13 +87,14 @@ namespace REAL.Example
                 
                     var bytes = receiveList.ToArray();
                     var response = Encoding.UTF8.GetString(bytes);
-                    var sockResponse = JsonUtility.FromJson<SocketResponse>(response);
+                    // var sockResponse = JsonUtility.FromJson<SocketResponse>(response);
+                    var sockResponse = RealNetwork.ToSocketMessage(response);
                     Commons.Renderer.OnMessage(sockResponse);
                 }
             }
             catch (Exception ex)
             {
-                // Debug.LogError(ex);
+                Debug.LogError(ex);
                 if(!Application.isPlaying) return;
                 Commons.Renderer.canvas.infoPanel.SetStatus("Socket closed!");
             }
@@ -118,8 +119,6 @@ namespace REAL.Example
 
         private static string GetUri(LoginCred login, bool onlyUnityJobs)
         {
-            // var ul = login.userCred;
-            // var pl = login.prodCred;
             var insID = login.insID;
             var appKey = login.appKey;
             var prodKey = login.prodKey;

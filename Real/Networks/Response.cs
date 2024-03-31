@@ -1,6 +1,6 @@
 using System;
-using Newtonsoft.Json;
 using REAL.Items;
+using Newtonsoft.Json;
 
 namespace REAL.Networks
 {
@@ -17,7 +17,7 @@ namespace REAL.Networks
             return JsonConvert.SerializeObject(this);
         }
     }
-
+    
     [Serializable]
     public class ApiResponse
     {

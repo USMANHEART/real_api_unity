@@ -26,6 +26,7 @@ namespace REAL.Example
             
             switch (type)
             {
+                case "job":
                 case "jobs":
                     canvas.jobPanel.AddJobs(jobsData);
                     break;
