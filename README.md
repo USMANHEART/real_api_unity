@@ -6,8 +6,8 @@
 - No extra hardware or GPU is required now.
 
 ## Docs
-* For detailed documents please visit: https://docs.real-api.com/
-* For Unity docs please visit: https://docs.real-api.com/en/unity-3d
+* For detailed documents please visit: [https://docs.real-api.com](https://docs.realistic3.com/en/home)
+* For Unity docs please visit: [https://docs.real-api.com/en/unity-3d](https://docs.realistic3.com/en/unity-3d)
 
 ## Screenshots:
 
